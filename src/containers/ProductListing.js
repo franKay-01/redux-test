@@ -32,21 +32,21 @@ const ProductPage = () => {
     // )
 
 
-    // const options = {
-    //   method: 'GET',
-    //   url: 'https://api.kisi.io/group_locks',
-    //   params: { ids: '1', limit: '10', offset: '0' },
-    //   headers: { 'Content-Type': 'application/json', Authorization: kisiClient.authenticationToken }
-    // };
+    const options = {
+      method: 'GET',
+      url: 'https://api.kisi.io/group_locks',
+      params: { ids: '1', limit: '10', offset: '0' },
+      headers: { 'Content-Type': 'application/json', Authorization: kisiClient.authenticationToken }
+    };
 
 
-    // axios.request(options).then(function (response) {
-    //   console.log("LOCKS "+response.data);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    axios.request(options).then(function (response) {
+      console.log("LOCKS "+response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
 
-    dispatch(setUser(kisiInfo));
+    // dispatch(setUser(kisiInfo));
   }
 
   useEffect(() => {
