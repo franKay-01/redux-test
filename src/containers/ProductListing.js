@@ -54,7 +54,7 @@ const ProductPage = () => {
       }
     })
       .then(response => {
-        console.log(`RESPONSE ${response}`);
+        console.log(`RESPONSE ${JSON.stringify(response)}`);
       })
       .catch(err => {
         console.error(err);
