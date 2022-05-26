@@ -23,39 +23,9 @@ const ProductPage = () => {
   const loginUser = async () => {
     const kisiClient = new Kisi()
 
-    let kisiInfo = await kisiClient.signIn({ domain: 'test-task', email: 'testaccount+1@kisi.io', password: 'uA3JlShxKn' })
-    console.log(JSON.stringify(kisiInfo))
-
-    let auth_token = `KISI-LOGIN ${kisiInfo['authenticationToken']}`;
-
-    const options = {
-      method: 'GET',
-      url: 'https://api.kisi.io/groups',
-      params: { limit: '10', offset: '0' },
-      headers: {'Content-Type': 'application/json', Authorization: auth_token}
-    };
-
-    axios.request(options)
-    .then(function (response) {
-      console.log("LOCKS "+response.data);
-    }).catch(function (error) {
-      console.error(JSON.stringify(error));
-    });
-    console.log(`TOKEN ${kisiInfo['authenticationToken']}`)
-    // fetch("https://api.kisi.io/group_locks?ids=1&limit=10&offset=0", {
-    //   "method": "GET",
-    //   "headers": {
-    //     "Content-Type": "application/json",
-    //     "Authorization": `${kisiInfo['authenticationToken']}`
-    //   }
-    // })
-    //   .then(response => {
-    //     console.log(`RESPONSE ${JSON.stringify(response)}`);
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //   });
-
+    kisiClient.signIn({ domain: 'test-task', email: 'testaccount+1@kisi.io', password: 'uA3JlShxKn' }).then(() => {
+      kisiClient.get("groups").then(groups => console.log('GROUPS '+groups))
+    })
     // dispatch(setUser(kisiInfo));
   }
 
