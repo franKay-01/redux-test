@@ -35,7 +35,7 @@ const ProductPage = () => {
     const options = {
       method: 'GET',
       url: 'https://api.kisi.io/groups',
-      params: { ids: kisiClient['id'], limit: '10', offset: '0' },
+      params: { limit: '10', offset: '0' },
       headers: {'Content-Type': 'application/json', Authorization: `KISI-LOGIN ${kisiInfo['authenticationToken']}`}
     };
 
