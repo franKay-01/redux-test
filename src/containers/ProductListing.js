@@ -32,33 +32,33 @@ const ProductPage = () => {
     // )
 
 
-    // const options = {
-    //   method: 'GET',
-    //   url: 'https://api.kisi.io/group_locks',
-    //   params: { ids: '1', limit: '10', offset: '0' },
-    //   headers: { 'Access-Control-Allow-Origin': "*",'Content-Type': 'application/json', Authorization: kisiClient.authenticationToken }
-    // };
+    const options = {
+      method: 'GET',
+      url: 'https://api.kisi.io/group_locks',
+      params: { ids: '1', limit: '10', offset: '0' },
+      headers: {'Content-Type': 'application/json', Authorization: `KISI-LOGIN ${kisiInfo['authenticationToken']}`}
+    };
 
 
-    // axios.request(options).then(function (response) {
-    //   console.log("LOCKS "+response.data);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    axios.request(options).then(function (response) {
+      console.log("LOCKS "+response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
     console.log(`TOKEN ${kisiInfo['authenticationToken']}`)
-    fetch("https://api.kisi.io/group_locks?ids=1&limit=10&offset=0", {
-      "method": "GET",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": `${kisiInfo['authenticationToken']}`
-      }
-    })
-      .then(response => {
-        console.log(`RESPONSE ${JSON.stringify(response)}`);
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    // fetch("https://api.kisi.io/group_locks?ids=1&limit=10&offset=0", {
+    //   "method": "GET",
+    //   "headers": {
+    //     "Content-Type": "application/json",
+    //     "Authorization": `${kisiInfo['authenticationToken']}`
+    //   }
+    // })
+    //   .then(response => {
+    //     console.log(`RESPONSE ${JSON.stringify(response)}`);
+    //   })
+    //   .catch(err => {
+    //     console.error(err);
+    //   });
 
     // dispatch(setUser(kisiInfo));
   }
