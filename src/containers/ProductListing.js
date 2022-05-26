@@ -25,6 +25,14 @@ const ProductPage = () => {
 
     kisiClient.signIn({ domain: 'test-task', email: 'testaccount+1@kisi.io', password: 'uA3JlShxKn' }).then(() => {
       kisiClient.get("groups").then(groups => console.log('GROUPS '+ JSON.stringify(groups)))
+
+      // kisiClient.post("groups", {
+      //   "group_lock": {
+      //     "group_id": 0,
+      //     "lock_id": 0
+      //   }
+      }).then(groups => console.log('GROUPS '+ JSON.stringify(groups)))
+      
     })
     // dispatch(setUser(kisiInfo));
   }
