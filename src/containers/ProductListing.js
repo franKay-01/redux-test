@@ -25,12 +25,6 @@ const ProductPage = () => {
 
     let kisiInfo = await kisiClient.signIn({ domain: 'test-task', email: 'testaccount+1@kisi.io', password: 'uA3JlShxKn' })
     console.log(JSON.stringify(kisiInfo))
-    // .then(() => {
-    //   kisiClient.get("groups").then(groups => console.log("GROUPS " + JSON.stringify(groups)))
-    //   kisiClient.get("groupslocks").then(groups_locks => console.log("GROUP LOCKS " + JSON.stringify(groups_locks)))
-    //   }
-    // )
-
 
     const options = {
       method: 'GET',
@@ -39,14 +33,12 @@ const ProductPage = () => {
       headers: {'Content-Type': 'application/json', Authorization: `KISI-LOGIN ${kisiInfo['authenticationToken']}`}
     };
 
-
-    let response = await axios.request(options)
-    console.log(`RESPONSE FROM KISI ${response}`)
-    // .then(function (response) {
-    //   console.log("LOCKS "+response.data);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    axios.request(options)
+    .then(function (response) {
+      console.log("LOCKS "+response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
     console.log(`TOKEN ${kisiInfo['authenticationToken']}`)
     // fetch("https://api.kisi.io/group_locks?ids=1&limit=10&offset=0", {
     //   "method": "GET",
