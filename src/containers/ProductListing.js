@@ -36,7 +36,7 @@ const ProductPage = () => {
       method: 'GET',
       url: 'https://api.kisi.io/group_locks',
       params: { ids: '1', limit: '10', offset: '0' },
-      headers: { 'Content-Type': 'application/json', Authorization: kisiClient.authenticationToken }
+      headers: { 'Access-Control-Allow-Origin': "*",'Content-Type': 'application/json', Authorization: kisiClient.authenticationToken }
     };
 
 
